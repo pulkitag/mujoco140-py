@@ -5,8 +5,11 @@ import time
 import os
 from os import path as osp
 
-DATA_DIR    = osp.join(os.getenv('HOME'), 'code', 'gps', 'mjc_models', 'reacher.xml')
+#DATA_DIR    = osp.join(os.getenv('HOME'), 'code', 'gps', 'mjc_models', 'reacher.xml')
+DATA_DIR    = osp.join('/work4/pulkitag-code/pkgs', 'gps', 'mjc_models', 'particle2d.xml')
 fullpath = './example.xml'
+print (DATA_DIR)
+print (osp.exists(DATA_DIR))
 model = mujoco_py.MjModel(DATA_DIR)
 width = 1000
 height = 1000

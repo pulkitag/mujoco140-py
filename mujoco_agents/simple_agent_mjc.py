@@ -3,9 +3,10 @@ import numpy as np
 import os
 from os import path as osp
 import vis_utils as vu
+from pyhelper_fns import check_utils
 
-from mujoco_agents.config import AGENT_MUJOCO
-import mujoco_py as mjcpy
+from ..mujoco_agents.config import AGENT_MUJOCO
+from .. import mujoco_py as mjcpy
 
 class SimpleAgentMuJoCo(object):
     """
@@ -44,9 +45,7 @@ class SimpleAgentMuJoCo(object):
                                             go_fast=gofast)
         self._small_viewer.start()
         self._small_viewer.set_model(self._model)
-        self._small_viewer.render()
-        #self._small_viewer.loop_once()
-
+        self.render()
 
     def step(self, ctrl=None):
       if ctrl is not None:
@@ -89,8 +88,10 @@ class SimpleAgentMuJoCo(object):
 
 def simple_test():
   hyperparams = {}
-  DATA_DIR    = osp.join(os.getenv('HOME'), 'code', 'gps', 'mjc_models') 
-  hyperparams['filename'] = osp.join(DATA_DIR, 'reacher.xml')
+  #DATA_DIR   = osp.join(os.getenv('HOME'), 'code', 'gps', 'mjc_models') 
+  DATA_DIR    = osp.join('/work4/pulkitag-code/pkgs/','gps', 'mjc_models') 
+  hyperparams['filename'] = osp.join(DATA_DIR, 'particle2d.xml')
+  check_utils.exists(hyperparams['filename']) 
   ag = SimpleAgentMuJoCo(hyperparams)
   return ag 
   ctrl = np.array(([1., 1.]))
