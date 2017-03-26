@@ -1,13 +1,22 @@
-# MuJoCo Python Bindings
+## New things
+```
+sudo apt-get install pry bundler
+cd mujoco_py
+bundle install
+./gen_binding.sh
+```
+Download: `ctypesgen` from [here](https://github.com/davidjamesca/ctypesgen)
+```
+python ctypesgen.py -l/work4/pulkitag-code/pkgs/mujoco/mjpro131/bin/libmujoco140nogl.so /work4/pulkitag-code/pkgs/mujoco/mjpro131/include/mujoco.h -o blah.py
+```
 
-[![Build Status](https://travis-ci.org/openai/mujoco-py.svg?branch=master)](https://travis-ci.org/openai/mujoco-py)
+# MuJoCo Python Bindings
 
 MuJoCo is a physics engine which can do very detailed efficient
 simulations with contacts. This library lets you use MuJoCo from
 Python.
 
-Note that MuJoCo tends to change significantly between versions, so
-this library is likely to stay pinned to 1.31 for the near future.
+Python bindings for mujoco140
 
 # Installing this library
 
