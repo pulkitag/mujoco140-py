@@ -5,6 +5,10 @@ cd mujoco_py
 bundle install
 ./gen_binding.sh
 ```
+Download: `ctypesgen` from [here](https://github.com/davidjamesca/ctypesgen)
+```
+python ctypesgen.py -l/work4/pulkitag-code/pkgs/mujoco/mjpro131/bin/libmujoco140nogl.so /work4/pulkitag-code/pkgs/mujoco/mjpro131/include/mujoco.h -o blah.py
+```
 
 # MuJoCo Python Bindings
 
