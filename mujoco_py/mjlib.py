@@ -9,7 +9,8 @@ path_prefix = config.mjpro_path
 if sys.platform.startswith("darwin"):
     libfile = os.path.join(path_prefix, "bin/libmujoco131.dylib")
 elif sys.platform.startswith("linux"):
-    libfile = os.path.join(path_prefix, "bin/libmujoco131.so")
+    #libfile = os.path.join(path_prefix, "bin/libmujoco131.so")
+    libfile = os.path.join(path_prefix, "bin/libmujoco140nogl.so")
 elif sys.platform.startswith("win"):
     libfile = os.path.join(path_prefix, "bin/mujoco131.lib")
 else:

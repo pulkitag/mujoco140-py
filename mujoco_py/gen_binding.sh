@@ -1,6 +1,9 @@
 #!/bin/sh
 parent_path=$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )
-mujoco_path=$MUJOCO_PY_BUNDLE_PATH/osx/mujoco
+echo $parent_path
+#mujoco_path=$MUJOCO_PY_BUNDLE_PATH/osx/mujoco
+mujoco_path=/work4/pulkitag-code/pkgs/mujoco/mjpro131/include
+echo $mujoco_path
 rm /tmp/code_gen_mujoco.h
 cat $mujoco_path/mjdata.h >> /tmp/code_gen_mujoco.h && \
   cat $mujoco_path/mjmodel.h >> /tmp/code_gen_mujoco.h && \
