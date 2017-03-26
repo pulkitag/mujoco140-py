@@ -74,8 +74,16 @@ def anon_struct_regex
 end
 
 def parse_struct(source, name, hints)
+  #print name
+  #print "blah\n"
   source =~ struct_regex(name)
   content = $2
+  #print content
+  if name == '_mjvCameraPose'
+    return 0
+  elsif name == '_mjrOption'
+    return 0
+  end
   subs = []
   # note that this won't work in general; luckily for us, the _mjVisual struct
   # only has anonymous struct fields and nothing else
@@ -377,7 +385,8 @@ from ctypes import *
 import numpy as np
 }
 
-structs = %w[_mjContact _mjrRect _mjvCameraPose _mjrOption _mjrContext _mjvCamera _mjvOption _mjvGeom _mjvLight _mjvObjects _mjOption _mjVisual _mjStatistic _mjData _mjModel].map{|x| parse_struct(source, x, hints) }
+#structs = %w[_mjContact _mjrRect _mjvCameraPose _mjrOption _mjrContext _mjvCamera _mjvOption _mjvGeom _mjvLight _mjvObjects _mjOption _mjVisual _mjStatistic _mjData _mjModel].map{|x| parse_struct(source, x, hints) }
 
+structs = %w[_mjContact _mjrRect _mjvGeom _mjvScene _mjvPerturb _mjrContext _mjvCamera _mjvOption _mjvGeom _mjvLight _mjOption _mjVisual _mjStatistic _mjData _mjModel].map{|x| parse_struct(source, x, hints) }
 structs.each {|s| puts gen_ctypes_src(source, s) }
 structs.each {|s| puts gen_wrapper_src(source, s) }
